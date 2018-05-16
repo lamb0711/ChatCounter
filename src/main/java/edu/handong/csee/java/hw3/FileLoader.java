@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class FileLoader {
 	private String fileName;
 	
-	void readFile(ArrayList<String> fileLine){
+	ArrayList<String> readFile(ArrayList<String> fileLine){
         Scanner keyboard = new Scanner(System.in);
         Scanner inputStream = null;
 		
@@ -24,9 +24,11 @@ public class FileLoader {
 			System.exit (0);
 	    }
 		
-		saveFileByLine(inputStream,fileLine);
+		fileLine = saveFileByLine(inputStream,fileLine);
+		inputStream.close();
 		
-		inputStream.close ();
+		return fileLine;
+		
     }
 	
 	ArrayList<String> saveFileByLine(Scanner inputStream, ArrayList<String> fileLine) {

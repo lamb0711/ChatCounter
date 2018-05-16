@@ -13,6 +13,7 @@ public class Main {
 		RedundancyChecker re = new RedundancyChecker();
 		
 		fileLine = fi.readFile(fileLine);
+		
 		messageLine = me.saveOnlyMessage(fileLine, messageLine);
 		message = re.removeRedundancy(messageLine, message);
 
