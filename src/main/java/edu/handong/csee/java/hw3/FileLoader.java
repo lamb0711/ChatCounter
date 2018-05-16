@@ -8,36 +8,39 @@ import java.util.Scanner;
 public class FileLoader {
 	private String fileName;
 	
-	void readFile(ArrayList<String> chatLine){
+	void readFile(ArrayList<String> fileLine){
         Scanner keyboard = new Scanner(System.in);
         Scanner inputStream = null;
 		
 		System.out.println("Input File name to read");
-		fileName = keyboard.next();
-		//fileName = "parsing.txt";
+		//fileName = keyboard.next();
+		fileName = "C:\\Users\\magic\\git\\ChatCounter\\parsing.txt";
 		
 		try {
 			inputStream = new Scanner(new File(fileName));
+			
 		}  catch (FileNotFoundException e) {
 			System.out.println ("Error opening the file " + fileName);
 			System.exit (0);
 	    }
 		
-		saveFileByLine(inputStream,chatLine);
+		saveFileByLine(inputStream,fileLine);
 		
-		//inputStream.close ();
+		inputStream.close ();
     }
 	
-	void saveFileByLine(Scanner inputStream, ArrayList<String> chatLine) {
+	ArrayList<String> saveFileByLine(Scanner inputStream, ArrayList<String> fileLine) {
 		
 		while (inputStream.hasNextLine ()) {
 			String line = inputStream.nextLine ();
-			chatLine.add(line);
+			fileLine.add(line);
 		}
 		
-		for(int i=0; i<chatLine.size(); i++) {
-			System.out.println(chatLine.get(i));
+		for(int i=0; i<fileLine.size(); i++) {
+			System.out.println(fileLine.get(i));
 		}
+		
+		return fileLine;
 		
 	}
 
