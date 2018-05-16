@@ -12,7 +12,7 @@ public class Main {
 		
 		System.out.println("Input File name to read");
 		file = keyboard.next();
-		fi.readFile(file);
+		fi.readFile(file,chatLine);
 		
 
 	}
