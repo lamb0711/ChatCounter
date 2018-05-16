@@ -8,18 +8,24 @@ import java.util.Scanner;
 public class FileLoader {
 	private String fileName;
 	
-	void readFile(String file, ArrayList<String> chatLine){
-		Scanner inputStream = null;
-		fileName = file;
+	void readFile(ArrayList<String> chatLine){
+        Scanner keyboard = new Scanner(System.in);
+        Scanner inputStream = null;
+		
+		System.out.println("Input File name to read");
+		fileName = keyboard.next();
+		//fileName = "parsing.txt";
 		
 		try {
 			inputStream = new Scanner(new File(fileName));
-			saveFileByLine(inputStream,chatLine);
 		}  catch (FileNotFoundException e) {
 			System.out.println ("Error opening the file " + fileName);
 			System.exit (0);
 	    }
-		inputStream.close ();
+		
+		saveFileByLine(inputStream,chatLine);
+		
+		//inputStream.close ();
     }
 	
 	void saveFileByLine(Scanner inputStream, ArrayList<String> chatLine) {
@@ -30,7 +36,6 @@ public class FileLoader {
 		}
 		
 		for(int i=0; i<chatLine.size(); i++) {
-			i += 1;
 			System.out.println(chatLine.get(i));
 		}
 		
