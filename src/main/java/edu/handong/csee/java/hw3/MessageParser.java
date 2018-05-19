@@ -14,9 +14,9 @@ public class MessageParser {
 			}
 		}
 		
-		/*for(int i=0; i<messageLine.size(); i++) {
+		for(int i=0; i<messageLine.size(); i++) {
 			System.out.println(messageLine.get(i));
-		}*/
+		}
 		
 		return messageLine;
 		

@@ -15,7 +15,8 @@ public class FileLoader {
 
 		System.out.println("Input File name to read");
 		//fileName = keyboard.next();
-		fileName = "L2.csv";
+		fileName = "parsing.txt";
+		//fileName = "L2.csv";
 
 		try {
 			inputStream = new Scanner(new File(fileName));
@@ -40,12 +41,13 @@ public class FileLoader {
 		Scanner inputStream = null;
 
 		//fileName = keyboard.next();
-		fileName = "L2.csv";
+		fileName = "parsing.txt";
+		//fileName = "L2.csv";
 
 		try {
 			inputStream = new Scanner(new File(fileName));
 
-		}  catch (FileNotFoundException e) {
+		}  catch (FileNotFoundException e) { 
 			System.out.println ("Error opening the file " + fileName);
 			System.exit (0);
 		}
