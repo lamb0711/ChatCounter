@@ -14,7 +14,7 @@ public class FileLoader {
 		
 		System.out.println("Input File name to read");
 		//fileName = keyboard.next();
-		fileName = "C:\\Users\\magic\\git\\ChatCounter\\parsing.txt";
+		fileName = "parsing.txt";
 		
 		try {
 			inputStream = new Scanner(new File(fileName));

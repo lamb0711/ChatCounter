@@ -14,7 +14,7 @@ public class Main {
 		
 		fileLine = fi.readFile(fileLine);
 		messageLine = me.saveOnlyMessage(fileLine, messageLine);
-		message = re.removeRedundancy(messageLine, message);
+		//message = re.removeRedundancy(messageLine, message);
 
 	}
 
