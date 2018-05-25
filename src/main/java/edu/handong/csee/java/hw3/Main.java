@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 public class Main {
 	private static char distinguish;
-	public static ArrayList<String> fileLine = new ArrayList<String>();
-	public static ArrayList<String> fileLineMac = new ArrayList<String>();
 	public static ArrayList<String> messageLine = new ArrayList<String>();
 	public static ArrayList<String> messageLineMac = new ArrayList<String>();
 	public static Message people = new Message();
 	
-	public static ArrayList<String> csv = new ArrayList<String>();
-	public static ArrayList<String> txt = new ArrayList<String>();
+	
+	private static ArrayList<String> csv = new ArrayList<String>();
+	private static ArrayList<String> txt = new ArrayList<String>();
 	
 	public static void main(String[]args) {
 		File file  = new File("/Users/yangsujin/Documents/git/ChatCounter/Chat-자바");
@@ -30,16 +29,28 @@ public class Main {
 		 for(int i = 0; i < name.size(); i++){
 			 String txtname = name.get(i);
 			 if(txtname.matches(".*csv")) {
-				 csv.add(txtname);
-			 }else txt.add(txtname);
+				 csv.add("/Users/yangsujin/Documents/git/ChatCounter/Chat-자바/"+txtname);
+			 }else txt.add("/Users/yangsujin/Documents/git/ChatCounter/Chat-자바/"+txtname);
 		 }
 		 
-		 for(int i=0; i<csv.size(); i++) {
+		/* for(int i=0; i<csv.size(); i++) {
 			 System.out.println(csv.get(i));
 			 }
 		 
 		 for(int i=0; i<txt.size(); i++) {
 			 System.out.println(txt.get(i));
+			 }
+		 */
+		 
+		 
+		 FileLoader fi = new FileLoader();
+		 
+		 for(int i=0; i<csv.size(); i++) {
+			 fi.readFile(csv.get(i), 1);
+			 }
+		 
+		 for(int i=0; i<txt.size(); i++) {
+			 fi.readFile(txt.get(i), 0);
 			 }
 		 
 	}
