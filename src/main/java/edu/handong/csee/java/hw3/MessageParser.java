@@ -25,12 +25,12 @@ public class MessageParser {
 		line = "";
 		for(int i=1; i<fileLineMac.size()-1; i++) {
 			line = line.concat(fileLineMac.get(i));
-			if(fileLineMac.get(i+1).matches("2018-.*")) line = line.concat("}");
+			if(fileLineMac.get(i+1).matches("2018-.*")) line = line.concat("]]");
 		}
 		
 		//System.out.println(line);
 		
-		String[] tempStr = line.split("}"); 
+		String[] tempStr = line.split("]]"); 
 		for (int i = 0; i < tempStr.length; i++) { 
 		      messageLineMac.add(tempStr[i]); 
 		}
