@@ -38,6 +38,7 @@ public class MessageDivider {
 
 
 	FileLoader fi = new FileLoader();
+	MacMessageParser ma = new MacMessageParser();
 
 	 
 	void divideMessageWin() {
@@ -136,9 +137,10 @@ public class MessageDivider {
 	void divideMessageMac() {
 		Pattern pattern = Pattern.compile(".+\\s([0-9]+:[0-9]+):[0-9]+,\"(.+)\",\"(.+)\"");
 
-		for(int i=0; i<fi.getFileLineMac().size(); i++) {
+		
+		for(int i=0; i<ma.getMessageLineMac().size(); i++) {
 
-			String line = fi.getFileLineMac().get(i);
+			String line = ma.getMessageLineMac().get(i);
 			Matcher matcher = pattern.matcher(line);
 
 			while(matcher.find()) {
