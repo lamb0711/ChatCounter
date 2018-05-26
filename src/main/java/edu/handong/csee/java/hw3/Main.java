@@ -28,7 +28,7 @@ public class Main {
 		
 
 		File file  = new File(args[0]);
-		File arr[] = file.listFiles();
+		 File arr[] = file.listFiles();
 		
 		ArrayList<String> name = new ArrayList<String>();
 
@@ -66,10 +66,14 @@ public class Main {
 			 }
 		 
 		 
-		 for(int i=0; i<txt.size(); i++) {
+		 for(int i=0; i<0; i++) {
 			 fi.readFile(txt.get(i), 0);
 			 di.divideMessageWin();
 			 }
+		 
+		 HashMapMaker ha = new HashMapMaker();
+		// ha.saveOnlyOneUser();
+		// ha.removeRedundancy();
 		 
 	}
 	
