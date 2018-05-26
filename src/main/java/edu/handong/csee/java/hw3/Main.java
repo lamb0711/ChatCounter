@@ -46,26 +46,27 @@ public class Main {
 		 }
 		 
 		 
-		 /*for(int i=0; i<csv.size(); i++) {
+		 for(int i=0; i<csv.size(); i++) {
 			 System.out.println(csv.get(i));
 			 }
 		 
 		 for(int i=0; i<txt.size(); i++) {
 			 System.out.println(txt.get(i));
 			 }
-		 */
+		 
 		 
 		 
 		 FileLoader fi = new FileLoader();
 		 MessageDivider di = new MessageDivider();
-		 MessageParser pa = new MessageParser();
+
 		 
 		 for(int i=0; i<csv.size(); i++) {
 			 fi.readFile(csv.get(i), 1);
-			 pa.saveOnlyMessageMac();
+			 di.divideMessageMac();
 			 }
 		 
-		 for(int i=0; i<0; i++) {
+		 
+		 for(int i=0; i<txt.size(); i++) {
 			 fi.readFile(txt.get(i), 0);
 			 di.divideMessageWin();
 			 }

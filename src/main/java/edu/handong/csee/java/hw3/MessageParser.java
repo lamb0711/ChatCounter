@@ -34,10 +34,9 @@ public class MessageParser {
 		if(fileLineMac.get(fileLineMac.size()-1).matches("2018-.*"))
 		messageLineMac.add(fileLineMac.get(fileLineMac.size()-1));
 		
-		System.out.println("");
-		for(int i=0; i<messageLineMac.size(); i++) {
+		/*for(int i=0; i<messageLineMac.size(); i++) {
 			System.out.println(messageLineMac.get(i));
-		}
+		}*/
 	}
 
 }

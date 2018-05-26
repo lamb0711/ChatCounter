@@ -6,13 +6,20 @@ import java.util.regex.Pattern;
 
 
 public class MessageDivider {
-	ArrayList<String> user = new ArrayList<String>();
+	static ArrayList<String> user = new ArrayList<String>();
 	ArrayList<String> time = new ArrayList<String>();
-	ArrayList<String> timeRe = new ArrayList<String>();
-	ArrayList<String> chatMessage = new ArrayList<String>();
+	static ArrayList<String> timeRe = new ArrayList<String>();
+	static ArrayList<String> chatMessage = new ArrayList<String>();
+	static ArrayList<String> chatMessages = new ArrayList<String>();
+	
+	static ArrayList<String> userMac = new ArrayList<String>();
+	static ArrayList<String> chatMessageMac = new ArrayList<String>();
+	static ArrayList<String> timeMac = new ArrayList<String>();
 
 	FileLoader fi = new FileLoader();
+	 MessageParser pa = new MessageParser();
 
+	 
 	void divideMessageWin() {
 
 		Pattern pattern = Pattern.compile("\\[(.+)\\]\\s\\[(.+)\\]\\s(.+)");
@@ -32,10 +39,11 @@ public class MessageDivider {
 		}
 
 		changeTimeWin();
+	
 
-		/*for(int i=0; i<user.size(); i++) {
-			System.out.println(user.get(i)+" "+time.get(i)+" "+chatMessage.get(i));
-		}*/
+		for(int i=0; i<user.size(); i++) {
+			System.out.println(user.get(i)+" "+chatMessages.get(i));
+		}
 
 	}
 
@@ -104,14 +112,33 @@ public class MessageDivider {
 		}*/
 
 		for(int i=0; i<user.size(); i++) {
-			System.out.println(user.get(i)+" "+timeRe.get(i)+" "+chatMessage.get(i));
+			chatMessages.add(i,timeRe.get(i)+" "+chatMessage.get(i));
 		}
-
+	
 	}
 
 
-	private void divideMessageMac() {
+	void divideMessageMac() {
+		Pattern pattern = Pattern.compile(".+\\s([0-9]+:[0-9]+):[0-9]+,\"(.+)\",\"(.+)\"");
 
+		for(int i=0; i<fi.getFileLineMac().size(); i++) {
+
+			String line = fi.getFileLineMac().get(i);
+			Matcher matcher = pattern.matcher(line);
+
+			while(matcher.find()) {
+
+				userMac.add(matcher.group(2));
+				timeMac.add(matcher.group(1));
+				chatMessageMac.add(matcher.group(1)+" "+matcher.group(3));
+
+			}
+		}
+		
+		for(int i=0; i<userMac.size(); i++) {
+			System.out.println(userMac.get(i)+" "+timeMac.get(i)+" "+chatMessageMac.get(i));
+		}
+	
 	}
 
 
