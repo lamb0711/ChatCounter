@@ -6,6 +6,16 @@ import java.util.TreeSet;
 
 public class RedundancyChecker {
 	MessageDivider di = new MessageDivider();
+	static ArrayList<String> oneUser = new ArrayList<String>();
+	public static ArrayList<String> getOneUser() {
+		return oneUser;
+	}
+
+	public static ArrayList<String> getOneMessage() {
+		return oneMessage;
+	}
+
+	static ArrayList<String> oneMessage = new ArrayList<String>();
 	
 	void saveOnlyOneUser() {
 		ArrayList<String> allUser = new ArrayList<String>();
@@ -18,11 +28,11 @@ public class RedundancyChecker {
 		}
 		
 		TreeSet<String> user = new TreeSet<String>(allUser);
-		ArrayList<String> oneUser = new ArrayList<String>(user);
+		oneUser.addAll(user);
 		
-		for(int i=0;i<oneUser.size();i++) {
+		/*for(int i=0;i<oneUser.size();i++) {
 			System.out.println(i+" "+oneUser.get(i));
-		}
+		}*/
 	}
 	
 	void removeRedundancy() {
@@ -35,7 +45,7 @@ public class RedundancyChecker {
 			allMessage.add(di.getChatMessageWin().get(i));
 		}
 		TreeSet<String> message = new TreeSet<String>(allMessage);
-		ArrayList<String> oneMessage = new ArrayList<String>(message);
+		oneMessage.addAll(message);
 		
 		/*for(int i=0; i < oneMessage1.size()-1;i++) {
 			
@@ -48,9 +58,9 @@ public class RedundancyChecker {
 			oneMessage.add(oneMessage1.get(i));
 		}*/
 		
-		for(int i=0;i<oneMessage.size();i++) {
+		/*for(int i=0;i<oneMessage.size();i++) {
 			System.out.println(i+" "+oneMessage.get(i));
-		}
+		}*/
 		
 	}
 	
