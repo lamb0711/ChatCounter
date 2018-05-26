@@ -17,7 +17,6 @@ public class MessageDivider {
 	static ArrayList<String> timeMac = new ArrayList<String>();
 
 	FileLoader fi = new FileLoader();
-	 MessageParser pa = new MessageParser();
 
 	 
 	void divideMessageWin() {
