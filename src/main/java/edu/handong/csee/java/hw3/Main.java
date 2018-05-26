@@ -24,9 +24,8 @@ public class Main {
 	
 	public static void main(String[]args) {
 		Main my = new Main();
-		my.run(args);
+		//my.run(args);
 		
-		//System.out.println(args[0]);
 
 		File file  = new File(args[0]);
 		File arr[] = file.listFiles();
@@ -46,7 +45,7 @@ public class Main {
 			 }else txt.add(args[0]+"/"+txtname);
 		 }
 		 
-		 /*
+		 
 		 for(int i=0; i<csv.size(); i++) {
 			 System.out.println(csv.get(i));
 			 }
@@ -54,15 +53,18 @@ public class Main {
 		 for(int i=0; i<txt.size(); i++) {
 			 System.out.println(txt.get(i));
 			 }
-		 */
+		 
 		 
 		 
 		 FileLoader fi = new FileLoader();
 		 MessageDivider di = new MessageDivider();
+
 		 
-		 for(int i=0; i<1; i++) {
+		 for(int i=0; i<csv.size(); i++) {
 			 fi.readFile(csv.get(i), 1);
+			 di.divideMessageMac();
 			 }
+		 
 		 
 		 for(int i=0; i<txt.size(); i++) {
 			 fi.readFile(txt.get(i), 0);

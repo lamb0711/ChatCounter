@@ -15,22 +15,14 @@ public class FileLoader {
 		return fileLineWin;
 	}
 
-	public void setFileLineWin(ArrayList<String> fileLineWin) {
-		this.fileLineWin = fileLineWin;
-	}
-
 	public ArrayList<String> getFileLineMac() {
 		return fileLineMac;
 	}
 
-	public void setFileLineMac(ArrayList<String> fileLineMac) {
-		this.fileLineMac = fileLineMac;
-	}
 
 
-
-	private String fileName;
-	private File directory;
+	//private String fileName;
+	//private File directory;
 
 	
 	/*HashMap<String,ArrayList<Message>> messages = new HsahMap<String,ArrayList<Message>>();//one person a lot of message
@@ -65,7 +57,7 @@ public class FileLoader {
 
 
 	void readFile(String fileName, int a){
-		Scanner keyboard = new Scanner(System.in);
+		//Scanner keyboard = new Scanner(System.in);
 		Scanner inputStream = null;
 
 
