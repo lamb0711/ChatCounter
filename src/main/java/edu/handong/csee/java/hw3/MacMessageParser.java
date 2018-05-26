@@ -12,7 +12,7 @@ public class MacMessageParser {
 	
 	void saveOnlyMessageMac() {
 		String line = "";
-		for(int i=1; i<fi.getFileLineMac().size()-1; i++) {
+		for(int i=0; i<fi.getFileLineMac().size()-1; i++) {
 			line = line.concat(fi.getFileLineMac().get(i));
 			if(fi.getFileLineMac().get(i+1).matches("2018-.*")) line = line.concat("]]]");
 		}
@@ -24,13 +24,12 @@ public class MacMessageParser {
 		      messageLineMac.add(tempStr[i]); 
 		}
 		
-		if(fi.getFileLineMac().get(fi.getFileLineMac().size()-1).matches("2018-.*"))
 		messageLineMac.add(fi.getFileLineMac().get(fi.getFileLineMac().size()-1));
 		
-		System.out.println("");
+		/*System.out.println("");
 		for(int i=0; i<messageLineMac.size(); i++) {
 			System.out.println(messageLineMac.get(i));
-		}
+		}*/
 	
 	}
 

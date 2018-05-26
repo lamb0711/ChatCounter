@@ -60,21 +60,21 @@ public class Main {
 		 MessageDivider di = new MessageDivider();
 		 MacMessageParser ma = new MacMessageParser();
 		 
-		 for(int i=0; i<1; i++) {
-			 fi.readFile(csv.get(9), 1);
-			 di.divideMessageMac();
+		 for(int i=0; i<csv.size(); i++) {
+			 fi.readFile(csv.get(i), 1);
 			 ma.saveOnlyMessageMac();
+			 di.divideMessageMac();
 			 }
 		 
 		 
-		 for(int i=0; i<0; i++) {
+		 for(int i=0; i<txt.size(); i++) {
 			 fi.readFile(txt.get(i), 0);
 			 di.divideMessageWin();
 			 }
 		 
-		 HashMapMaker ha = new HashMapMaker();
-		// ha.saveOnlyOneUser();
-		// ha.removeRedundancy();
+		 RedundancyChecker ha = new RedundancyChecker();
+		   ha.saveOnlyOneUser();
+		   ha.removeRedundancy();
 		 
 	}
 	

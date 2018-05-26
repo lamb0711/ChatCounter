@@ -15,6 +15,7 @@ public class MessageDivider {
 	
 	static ArrayList<String> userMac = new ArrayList<String>();
 	ArrayList<String> timeMac = new ArrayList<String>();
+	static ArrayList<String> chatMessageMac1 = new ArrayList<String>();
 	static ArrayList<String> chatMessageMac = new ArrayList<String>();
 	
 	
@@ -135,6 +136,8 @@ public class MessageDivider {
 
 
 	void divideMessageMac() {
+		//String lines = "";
+		//String nextLines= "";
 		Pattern pattern = Pattern.compile(".+\\s([0-9]+:[0-9]+):[0-9]+,\"(.+)\",\"(.+)\"");
 
 		
@@ -152,6 +155,18 @@ public class MessageDivider {
 			}
 		}
 		
+		/*for(int i=0; i < chatMessageMac1.size()-1; i++) {
+
+			if(chatMessageMac1.get(i).length()>40 && chatMessageMac1.get(i+1).length()>40) {
+				lines = chatMessageMac1.get(i).substring(1, 35);
+				nextLines = chatMessageMac1.get(i+1).substring(1, 35);
+				if(lines.equals(nextLines)) {
+					continue;
+				}
+			}
+			chatMessageMac.add(chatMessageMac1.get(i));
+		}*/
+
 		/*for(int i=0; i<userMac.size(); i++) {
 			System.out.println("M"+chatMessageMac.get(i));
 		}*/
