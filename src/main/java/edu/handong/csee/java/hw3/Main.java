@@ -24,9 +24,8 @@ public class Main {
 	
 	public static void main(String[]args) {
 		Main my = new Main();
-		my.run(args);
+		//my.run(args);
 		
-		//System.out.println(args[0]);
 
 		File file  = new File(args[0]);
 		File arr[] = file.listFiles();
@@ -46,8 +45,8 @@ public class Main {
 			 }else txt.add(args[0]+"/"+txtname);
 		 }
 		 
-		 /*
-		 for(int i=0; i<csv.size(); i++) {
+		 
+		 /*for(int i=0; i<csv.size(); i++) {
 			 System.out.println(csv.get(i));
 			 }
 		 

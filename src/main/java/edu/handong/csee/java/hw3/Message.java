@@ -2,7 +2,7 @@ package edu.handong.csee.java.hw3;
 
 public class Message {
 	public String person;
-	public int date;
+	public String date;
 	public String chatMessage;
 	
 	public String getPerson() {
@@ -11,10 +11,10 @@ public class Message {
 	public void setPerson(String person) {
 		this.person = person;
 	}
-	public int getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getChatMessage() {
