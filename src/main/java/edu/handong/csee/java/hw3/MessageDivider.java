@@ -6,39 +6,47 @@ import java.util.regex.Pattern;
 
 
 public class MessageDivider {
+	ArrayList<String> user = new ArrayList<String>();
+	ArrayList<String> time = new ArrayList<String>();
+	ArrayList<String> chatMessage = new ArrayList<String>();
+	
 	FileLoader fi = new FileLoader();
 	Message me = new Message();
-
 	
 	void divideMessageWin() {
-		ArrayList<String> user = new ArrayList<String>();
-		ArrayList<String> time = new ArrayList<String>();
-		ArrayList<String> chatMessage = new ArrayList<String>();
 
 		Pattern pattern = Pattern.compile("\\[(.+)\\]\\s\\[(.+)\\]\\s(.+)");
 
 		for(int i=0; i<fi.getFileLineWin().size(); i++) {
 			String line = fi.getFileLineWin().get(i);
 			Matcher matcher = pattern.matcher(line);
-
-
+			
 			while(matcher.find()) {
-
 				user.add(matcher.group(1));
 				time.add(matcher.group(2));
 				chatMessage.add(matcher.group(3));
-
 			}
 		}
 
-		for(int i=0; i<user.size(); i++) {
+		//changeTimeWin();
+		/*for(int i=0; i<user.size(); i++) {
 			System.out.println(user.get(i)+" "+time.get(i)+" "+chatMessage.get(i));
-		}
+		}*/
 
 	}
 	
 	private void changeTimeWin() {
 		
+		for(int i=0; i<time.size(); i++) {
+			System.out.println(time.get(i));
+		}
+
+		
+		for(int i=0; i<user.size(); i++) {
+			String line = time.get(i);
+	//		if(line.matches())
+			
+		}
 	}
 
 

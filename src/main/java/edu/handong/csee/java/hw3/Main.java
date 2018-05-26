@@ -4,12 +4,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+
+
+
 public class Main {
+	static String path;
+	boolean verbose;
+	boolean help;
+	
+	
 	private static ArrayList<String> csv = new ArrayList<String>();
 	private static ArrayList<String> txt = new ArrayList<String>();
 	
 	public static void main(String[]args) {
-		File file  = new File("/Users/yangsujin/Documents/git/ChatCounter/Chat-자바");
+		Main my = new Main();
+		my.run(args);
+		
+		//System.out.println(args[0]);
+
+		File file  = new File(args[0]);
 		File arr[] = file.listFiles();
 		
 		ArrayList<String> name = new ArrayList<String>();
@@ -23,11 +42,12 @@ public class Main {
 		 for(int i = 0; i < name.size(); i++){
 			 String txtname = name.get(i);
 			 if(txtname.matches(".*csv")) {
-				 csv.add("/Users/yangsujin/Documents/git/ChatCounter/Chat-자바/"+txtname);
-			 }else txt.add("/Users/yangsujin/Documents/git/ChatCounter/Chat-자바/"+txtname);
+				 csv.add(args[0]+"/"+txtname);
+			 }else txt.add(args[0]+"/"+txtname);
 		 }
 		 
-		/* for(int i=0; i<csv.size(); i++) {
+		 /*
+		 for(int i=0; i<csv.size(); i++) {
 			 System.out.println(csv.get(i));
 			 }
 		 
@@ -51,38 +71,75 @@ public class Main {
 		 
 	}
 	
-	/*public static void main(String[] args) {
-	 * 
-		FileLoader fi = new FileLoader();
-		MessageParser me = new MessageParser();
-		Message ms = new Message();
-		//RedundancyChecker re = new RedundancyChecker();
-		String directory="";
-		FileLoader fileLoader = new FileLoader(directory);//path copy and save in directory
-		HashMap<String,ArrayList<Message>> user = fileLoader.loadMacFiles();
-		for(String key : users.keySet()) {
-			for(Message messages:users.get(key)) {
-				System.out.println(message.getName()+" "+message.getMessage());
+	private void run(String[] args) {
+		Options options = createOptions();
+
+		if(parseOptions(options, args)) {
+			if (help){
+				printHelp(options);
+				return;
+			}
+			System.out.println("You provided \"" + path + "\" as the value of the option p");
+
+
+			if(verbose) {
+
+				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
 			}
 		}
-		
-		fileLoader.loadMacFile();
-		distinguish = fi.divideWindowMac();
-		
-		
-		if(distinguish == 'M') {
-			fileLineMac = fi.readFile(fileLineMac);
-			messageLineMac = me.saveOnlyMessageMac(fileLineMac, messageLineMac);
-			
-			System.out.println("M");
-			//message = re.removeRedundancy(messageLineMac, message);
-		}else {
-			fileLineMac = fi.readFile(fileLine);
-			messageLine = me.saveOnlyMessage(fileLine, messageLine);
-			System.out.println("w");
-			//message = re.removeRedundancy(messageLine, message);
-		}
 
-	}*/
+	}
+	
+	private boolean parseOptions(Options options, String[] args) {
+		CommandLineParser parser = new DefaultParser();
+		
+		try {
+			CommandLine cmd = parser.parse(options, args);
+			
+			path = cmd.getOptionValue("p");
+			verbose = cmd.hasOption("v");
+			help = cmd.hasOption("h");
+			
+		}catch (Exception e) {
+			printHelp(options);
+			return false;
+		}
+		return false;
+	}
+	
+	private void printHelp(Options options) {
+		// automatically generate the help statement
+		HelpFormatter formatter = new HelpFormatter();
+		String header = "CLI test program";
+		String footer ="\nPlease report issues at https://github.com/lifove/CLIExample/issues";
+		formatter.printHelp("CLIExample", header, options, footer, true);
+	}
+	
+	private Options createOptions() {
+		Options options = new Options();
+		
+		options.addOption(Option.builder("p").longOpt("path")
+				.desc("Set a path of a directory or a file to display")
+				.hasArg()
+				.argName("Path name to display")
+				.required()
+				.build());
+		options.addOption(Option.builder("v").longOpt("verbose")
+				.desc("Display detailed messages!")
+				//.hasArg()     // this option is intended not to have an option value but just an option
+				.argName("verbose option")
+				//.required() // this is an optional option. So disabled required().
+				.build());
+		
+		// add options by using OptionBuilder
+		options.addOption(Option.builder("h").longOpt("help")
+		        .desc("Help")
+		        .build());
+		
+		
+	return options;	
+	}
+	
+	
 
 }

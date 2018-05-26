@@ -32,11 +32,7 @@ public class FileLoader {
 	private String fileName;
 	private File directory;
 
-	/*public FileLoader() {
-		directory = new File(path);
-	}*/
-
-
+	
 	/*HashMap<String,ArrayList<Message>> messages = new HsahMap<String,ArrayList<Message>>();//one person a lot of message
 	public HashMap<String,ArrayList<Message>> loadMacFiles() {
 		for(File file : directory.listFiles()) {//directory file return
@@ -105,4 +101,4 @@ public class FileLoader {
 		inputStream.close();
 	}
 
-}//  \[(.+)\]\s\[([가-힣]+\s[0-9]+:[0-9]+)\]\s(.+)
+}
