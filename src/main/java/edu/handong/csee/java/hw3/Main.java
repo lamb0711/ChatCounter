@@ -73,7 +73,7 @@ public class Main {
 			 }
 		 
 		 RedundancyChecker ha = new RedundancyChecker();
-		   ha.saveOnlyOneUser();
+		  ha.saveOnlyOneUser();
 		   ha.removeRedundancy();
 		   
 		   PMCounter pm = new PMCounter();

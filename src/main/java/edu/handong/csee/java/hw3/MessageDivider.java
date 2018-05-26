@@ -60,10 +60,10 @@ public class MessageDivider {
 			}
 		}
 
-		changeTimeWin();
+		//changeTimeWin();
 	
 
-		/*for(int i=0; i<user.size(); i++) {
+		/*for(int i=0; i<chatMessages.size(); i++) {
 			System.out.println(chatMessages.get(i));
 		}*/
 
