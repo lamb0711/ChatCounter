@@ -24,7 +24,7 @@ public class MessageDivider {
 		Pattern pattern = Pattern.compile("\\[(.+)\\]\\s\\[(.+)\\]\\s(.+)");
 
 		for(int i=0; i<fi.getFileLineWin().size(); i++) {
-
+  
 			String line = fi.getFileLineWin().get(i);
 			Matcher matcher = pattern.matcher(line);
 
