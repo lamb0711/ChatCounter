@@ -12,7 +12,6 @@ public class MessageDivider {
 	ArrayList<String> chatMessage = new ArrayList<String>();
 
 	FileLoader fi = new FileLoader();
-	Message me = new Message();
 
 	void divideMessageWin() {
 

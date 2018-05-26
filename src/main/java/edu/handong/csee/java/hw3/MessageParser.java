@@ -3,34 +3,31 @@ package edu.handong.csee.java.hw3;
 import java.util.ArrayList;
 
 public class MessageParser {
-	
+	FileLoader fi = new FileLoader();
 	private String line;
-	ArrayList<String> saveOnlyMessage(ArrayList<String> fileLine, ArrayList<String> messageLine) {
-		
-		for(int i=0; i<fileLine.size(); i++) {
-			String line = fileLine.get(i);
-			if(line.matches("\\[.*")) {
-				messageLine.add(line);
-			}
-		}
-		
-		for(int i=0; i<messageLine.size(); i++) {
-			System.out.println(messageLine.get(i));
-		}
-		
-		return messageLine;
-		
+	
+	ArrayList<String> fileLineMac = new ArrayList<String>();
+	static ArrayList<String> messageLineMac = new ArrayList<String>();
+	
+	public static ArrayList<String> getMessageLineMac() {
+		return messageLineMac;
 	}
-	ArrayList<String> saveOnlyMessageMac(ArrayList<String> fileLineMac, ArrayList<String> messageLineMac) {
+
+	public static void setMessageLineMac(ArrayList<String> messageLineMac) {
+		MessageParser.messageLineMac = messageLineMac;
+	}
+
+	void saveOnlyMessageMac() {
+		
+		fileLineMac = fi.getFileLineMac();
+		
 		line = "";
 		for(int i=1; i<fileLineMac.size()-1; i++) {
 			line = line.concat(fileLineMac.get(i));
-			if(fileLineMac.get(i+1).matches("2018-.*")) line = line.concat("]]");
+			if(fileLineMac.get(i+1).matches("2018-.*")) line = line.concat("]]]");
 		}
 		
-		//System.out.println(line);
-		
-		String[] tempStr = line.split("]]"); 
+		String[] tempStr = line.split("]]]"); 
 		for (int i = 0; i < tempStr.length; i++) { 
 		      messageLineMac.add(tempStr[i]); 
 		}
@@ -41,7 +38,6 @@ public class MessageParser {
 		for(int i=0; i<messageLineMac.size(); i++) {
 			System.out.println(messageLineMac.get(i));
 		}
-		return messageLineMac;
 	}
 
 }
