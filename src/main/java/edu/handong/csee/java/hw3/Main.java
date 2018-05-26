@@ -5,12 +5,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
-	private static char distinguish;
-	public static ArrayList<String> messageLine = new ArrayList<String>();
-	public static ArrayList<String> messageLineMac = new ArrayList<String>();
-	public static Message people = new Message();
-	
-	
 	private static ArrayList<String> csv = new ArrayList<String>();
 	private static ArrayList<String> txt = new ArrayList<String>();
 	
@@ -44,13 +38,15 @@ public class Main {
 		 
 		 
 		 FileLoader fi = new FileLoader();
+		 MessageDivider di = new MessageDivider();
 		 
-		 for(int i=0; i<csv.size(); i++) {
+		 for(int i=0; i<1; i++) {
 			 fi.readFile(csv.get(i), 1);
 			 }
 		 
-		 for(int i=0; i<txt.size(); i++) {
+		 for(int i=0; i<1; i++) {
 			 fi.readFile(txt.get(i), 0);
+			 di.divideMessageWin();
 			 }
 		 
 	}

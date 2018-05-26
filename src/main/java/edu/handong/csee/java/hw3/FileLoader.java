@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 
 public class FileLoader {
-	private ArrayList<String> fileLineWin = new ArrayList<String>();
-	private ArrayList<String> fileLineMac = new ArrayList<String>();
+    static ArrayList<String> fileLineWin = new ArrayList<String>();
+	static ArrayList<String> fileLineMac = new ArrayList<String>();
 
 	public ArrayList<String> getFileLineWin() {
 		return fileLineWin;
@@ -88,23 +88,21 @@ public class FileLoader {
 				fileLineMac.add(line);
 			}
 
-			for(int i=0; i<fileLineMac.size(); i++) {
+			/*for(int i=0; i<fileLineMac.size(); i++) {
 				System.out.println(fileLineMac.get(i));
-			}
+			}*/
 		} else {
 			while (inputStream.hasNextLine ()) {
 				String line = inputStream.nextLine ();
 				fileLineWin.add(line);
 			}
 
-			for(int i=0; i<fileLineWin.size(); i++) {
+			/*for(int i=0; i<fileLineWin.size(); i++) {
 				System.out.println(fileLineWin.get(i));
-			}
+			}*/
 		}
 
 		inputStream.close();
-
-
 	}
 
-}
+}//  \[(.+)\]\s\[([가-힣]+\s[0-9]+:[0-9]+)\]\s(.+)
