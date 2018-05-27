@@ -78,6 +78,9 @@ public class Main {
 		   
 		   PMCounter pm = new PMCounter();
 		   pm.countMessageNumber();
+		   
+		   FileWriter wr = new FileWriter();
+		   
 		 
 	}
 	

@@ -36,6 +36,8 @@ public class RedundancyChecker {
 	}
 	
 	void removeRedundancy() {
+		String line = "";
+		
 		ArrayList<String> allMessage = new ArrayList<String>();
 		
 		for(int i=0; i<di.getChatMessageMac().size();i++) {
@@ -44,19 +46,22 @@ public class RedundancyChecker {
 		for(int i=0; i<di.getChatMessageWin().size();i++) {
 			allMessage.add(di.getChatMessageWin().get(i));
 		}
-		TreeSet<String> message = new TreeSet<String>(allMessage);
-		oneMessage.addAll(message);
 		
-		/*for(int i=0; i < oneMessage1.size()-1;i++) {
+		TreeSet<String> message = new TreeSet<String>(allMessage);
+		ArrayList<String> oneMessage1 = new ArrayList<String>(message);
+		
+		for(int i=0; i < oneMessage1.size()-1;i++) {
 			
-			if(oneMessage1.get(i).length()>50)
-			line = oneMessage1.get(i).substring(1, 40);
-			
-			if(oneMessage1.get(i+1).equals(line)) {
+			if(oneMessage1.get(i).length() > 50 && oneMessage1.get(i+1).length() > 100 ) 
+			line = oneMessage1.get(i).substring(0, 30);
+		
+			if(line.length()==30 && oneMessage1.get(i+1).contains(line)) {
 				continue;
 			}
+			
 			oneMessage.add(oneMessage1.get(i));
-		}*/
+		}
+		oneMessage.add(oneMessage1.get(oneMessage1.size()-1));
 		
 		/*for(int i=0;i<oneMessage.size();i++) {
 			System.out.println(i+" "+oneMessage.get(i));

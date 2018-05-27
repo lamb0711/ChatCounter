@@ -60,7 +60,7 @@ public class MessageDivider {
 			}
 		}
 
-		//changeTimeWin();
+		changeTimeWin();
 	
 
 		/*for(int i=0; i<chatMessages.size(); i++) {
@@ -83,7 +83,7 @@ public class MessageDivider {
 
 			String line = time.get(i);
 
-			if(line.matches("오전\\s(.*)")||line.matches(".*AM")) {
+			if(line.matches("오전\\s(.*)")||line.matches(".+\\sAM")) {
 
 				Pattern pattern = Pattern.compile("([0-9]+):([0-9]+)");
 				Matcher matcher = pattern.matcher(line);
@@ -94,7 +94,7 @@ public class MessageDivider {
 					time2 = matcher.group(2);
 
 				}
-				if(time1.matches("12")) {
+				if(time1.matches("12")){
 
 					time1 ="00";
 					timeRe.add(i,time1+":"+time2);
@@ -106,7 +106,7 @@ public class MessageDivider {
 			}
 
 
-			else if(line.matches("오후\\s(.*)")||line.matches(".*PM")) {
+			else if(line.matches("오후\\s(.*)")||line.matches(".+\\sPM")) {
 
 				Pattern pattern = Pattern.compile("([0-9]+):([0-9]+)");
 				Matcher matcher = pattern.matcher(line);
@@ -117,11 +117,11 @@ public class MessageDivider {
 					time2 = matcher.group(2);
 
 				}
-
 					timeInt = Integer.parseInt(time1);
+					if(timeInt!=12) {
 					timeInt = timeInt+12;
 					time1 = String.valueOf(timeInt);
-
+					}
 				timeRe.add(i,time1+":"+time2);
 			}
 		}

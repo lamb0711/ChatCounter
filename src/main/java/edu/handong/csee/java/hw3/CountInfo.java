@@ -1,8 +1,17 @@
 package edu.handong.csee.java.hw3;
 
-public class Message {
-	int rank = 0;
-	int number = 0;
+public class CountInfo {
+	int rank;
+	int number;
+	
+	public CountInfo() {
+		this.rank = 0;
+		this.number = 0;
+	}
+	public CountInfo(int rank, int number) {
+		this.rank = rank;
+		this.number = number;
+	}
 	
 	public int getRank() {
 		return rank;
