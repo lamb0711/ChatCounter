@@ -53,7 +53,6 @@ public class Main {
 			for(int i=0 ; i<arr.length ; i++ ){
 
 				name.add(arr[i].getName());
-				System.out.println(arr[i]);
 
 			}
 
@@ -63,14 +62,6 @@ public class Main {
 				if(txtname.matches(".*csv")) {
 					csv.add(path+"/"+txtname);
 				}else txt.add(path+"/"+txtname);
-			}
-
-			for(int i=0; i<csv.size(); i++) {
-				System.out.println(csv.get(i));
-			}
-
-			for(int i=0; i<txt.size(); i++) {
-				System.out.println(txt.get(i));
 			}
 
 
@@ -111,9 +102,9 @@ public class Main {
 
 	private boolean parseOptions(Options options, String[] args) {
 		CommandLineParser parser = new DefaultParser();
-	
-		
-		
+
+
+
 		try {
 			CommandLine cmd = parser.parse(options, args);
 
@@ -126,28 +117,28 @@ public class Main {
 			printHelp(options);
 			return false;
 		}
-		return false;
+		return true;
 	}
 
 	private void printHelp(Options options) {
 		// automatically generate the help statement
 		HelpFormatter formatter = new HelpFormatter();
-		String header = "CLI test program";
-		String footer ="\nPlease report issues at https://github.com/lifove/CLIExample/issues";
-		formatter.printHelp("CLIExample", header, options, footer, true);
+		String header = "Kakao Chat counter";
+		String footer ="\nPlease report issues at https://github.com/lamb0711/ChatCounter/issues";
+		formatter.printHelp("Kakao Chat counter", header, options, footer, true);
 	}
 
 	private Options createOptions() {
 		Options options = new Options();
 
 		options.addOption(Option.builder("i").longOpt("path")
-				.desc("Set a path of a directory or a file to display")
+				.desc("Set a path of a directory or a file to input")
 				.hasArg()
 				.argName("Path name to display")
 				.required()
 				.build());
 		options.addOption(Option.builder("o").longOpt("output")
-				.desc("Set a path of a directory or a file to display")
+				.desc("Set a path of a directory or a file to output")
 				.hasArg()
 				.argName("Path name to display")
 				.required()

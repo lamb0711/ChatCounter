@@ -40,9 +40,8 @@ public class RedundancyChecker {
 		for(int i=0; i<di.getUser().size();i++) {
 			allUser.add(di.getUser().get(i));
 		}
-		for(int i=0; i<di.getUserMac().size();i++) {
-			allUser.addAll(di.getUserMac());
-		}
+
+		allUser.addAll(di.getUserMac());
 
 		TreeSet<String> user = new TreeSet<String>(allUser);
 		oneUser.addAll(user);
