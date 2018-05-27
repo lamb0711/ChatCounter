@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class FileLoader {
-    static ArrayList<String> fileLineWin = new ArrayList<String>();
+	static ArrayList<String> fileLineWin = new ArrayList<String>();
 	static ArrayList<String> fileLineMac = new ArrayList<String>();
 
 	public ArrayList<String> getFileLineWin() {
@@ -20,44 +20,7 @@ public class FileLoader {
 	}
 
 
-
-	//private String fileName;
-	//private File directory;
-
-	
-	/*HashMap<String,ArrayList<Message>> messages = new HsahMap<String,ArrayList<Message>>();//one person a lot of message
-	public HashMap<String,ArrayList<Message>> loadMacFiles() {
-		for(File file : directory.listFiles()) {//directory file return
-			if(file.getName().contains(".csv")) {
-				Reader in;
-				try {
-					in = new FileReader(file);
-					Iterable<Cs> 
-					for(CSVRecord record : records) {
-						String time = record.get(0).substring(11,16);
-						String user 
-					}
-
-					if(!messages.contaninKey(user)) {
-						messages.put(user,new ArrayList<Messages>());
-					}
-					Message message = new Message(user,time,message));
-					messages.get(user).add(message);
-
-
-				}catch() {
-
-				}
-
-			}
-		}
-		return messages;
-	}*/
-
-
-
 	void readFile(String fileName, int a){
-		//Scanner keyboard = new Scanner(System.in);
 		Scanner inputStream = null;
 
 
@@ -76,18 +39,12 @@ public class FileLoader {
 				fileLineMac.add(line);
 			}
 
-			/*for(int i=0; i<fileLineMac.size(); i++) {
-				System.out.println(fileLineMac.get(i));
-			}*/
 		} else {
 			while (inputStream.hasNextLine ()) {
 				String line = inputStream.nextLine ();
 				fileLineWin.add(line);
 			}
 
-			/*for(int i=0; i<fileLineWin.size(); i++) {
-				System.out.println(fileLineWin.get(i));
-			}*/
 		}
 
 		inputStream.close();

@@ -3,7 +3,7 @@ package edu.handong.csee.java.hw3;
 public class CountInfo {
 	int rank;
 	int number;
-	
+
 	public CountInfo() {
 		this.rank = 0;
 		this.number = 0;
@@ -12,7 +12,7 @@ public class CountInfo {
 		this.rank = rank;
 		this.number = number;
 	}
-	
+
 	public int getRank() {
 		return rank;
 	}
