@@ -17,8 +17,8 @@ public class FileWriter {
 	 * saveInCsvFile method is save result data in csv file in descending order
 	 */
 
-	public void saveInCsvFile() {
-		String fileName = "out.csv";
+	public void saveInCsvFile(String output) {
+		String fileName = output;
 		PrintWriter outputStream = null;
 
 		try {

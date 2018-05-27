@@ -18,7 +18,8 @@ import org.apache.commons.cli.Options;
  */
 
 public class Main {
-	static String path;
+	String path;
+	String output;
 	boolean verbose;
 	boolean help;
 
@@ -33,54 +34,7 @@ public class Main {
 
 	public static void main(String[]args) {
 		Main my = new Main();
-		//my.run(args);
-
-
-		File file  = new File(args[0]);
-		File arr[] = file.listFiles();
-
-		ArrayList<String> name = new ArrayList<String>();
-
-		for(int i=0 ; i<arr.length ; i++ ){
-
-			name.add(arr[i].getName());
-
-		}
-
-		for(int i = 0; i < name.size(); i++){
-			String txtname = name.get(i);
-			if(txtname.matches(".*csv")) {
-				csv.add(args[0]+"/"+txtname);
-			}else txt.add(args[0]+"/"+txtname);
-		}
-
-
-		FileLoader fi = new FileLoader();
-		MessageDivider di = new MessageDivider();
-		MacMessageParser ma = new MacMessageParser();
-
-		for(int i=0; i<csv.size(); i++) {
-			fi.readFile(csv.get(i), 1);
-			ma.saveOnlyMessageMac();
-			di.divideMessageMac();
-		}
-
-
-		for(int i=0; i<txt.size(); i++) {
-			fi.readFile(txt.get(i), 0);
-			di.divideMessageWin();
-		}
-
-		RedundancyChecker ha = new RedundancyChecker();
-		ha.saveOnlyOneUser();
-		ha.removeRedundancy();
-
-		PMCounter pm = new PMCounter();
-		pm.countMessageNumber();
-
-		FileWriter wr = new FileWriter();
-		wr.saveInCsvFile();
-
+		my.run(args);
 	}
 
 	private void run(String[] args) {
@@ -91,7 +45,61 @@ public class Main {
 				printHelp(options);
 				return;
 			}
-			System.out.println("You provided \"" + path + "\" as the value of the option p");
+
+			File file  = new File(path);
+			File arr[] = file.listFiles();
+
+			ArrayList<String> name = new ArrayList<String>();
+
+			for(int i=0 ; i<arr.length ; i++ ){
+
+				name.add(arr[i].getName());
+				System.out.println(arr[i]);
+
+			}
+
+
+			for(int i = 0; i < name.size(); i++){
+				String txtname = name.get(i);
+				if(txtname.matches(".*csv")) {
+					csv.add(path+"/"+txtname);
+				}else txt.add(path+"/"+txtname);
+			}
+
+			for(int i=0; i<csv.size(); i++) {
+				System.out.println(csv.get(i));
+			}
+
+			for(int i=0; i<txt.size(); i++) {
+				System.out.println(txt.get(i));
+			}
+
+
+			FileLoader fi = new FileLoader();
+			MessageDivider di = new MessageDivider();
+			MacMessageParser ma = new MacMessageParser();
+
+			for(int i=0; i<csv.size(); i++) {
+				fi.readFile(csv.get(i), 1);
+				ma.saveOnlyMessageMac();
+				di.divideMessageMac();
+			}
+
+
+			for(int i=0; i<txt.size(); i++) {
+				fi.readFile(txt.get(i), 0);
+				di.divideMessageWin();
+			}
+
+			RedundancyChecker ha = new RedundancyChecker();
+			ha.saveOnlyOneUser();
+			ha.removeRedundancy();
+
+			PMCounter pm = new PMCounter();
+			pm.countMessageNumber();
+
+			FileWriter wr = new FileWriter();
+			wr.saveInCsvFile(output);
 
 
 			if(verbose) {
@@ -104,11 +112,15 @@ public class Main {
 
 	private boolean parseOptions(Options options, String[] args) {
 		CommandLineParser parser = new DefaultParser();
+		for(int i=0; i<args.length; i++)
+			System.out.println(args[i]);
+
 
 		try {
 			CommandLine cmd = parser.parse(options, args);
 
-			path = cmd.getOptionValue("p");
+			path = cmd.getOptionValue("i");
+			output = cmd.getOptionValue("o");
 			verbose = cmd.hasOption("v");
 			help = cmd.hasOption("h");
 
