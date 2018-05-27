@@ -11,7 +11,11 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
-
+/**
+ * Main class. It include main method and apache2 CLI code
+ * @author yangsujin
+ *
+ */
 
 public class Main {
 	static String path;
@@ -21,6 +25,11 @@ public class Main {
 
 	private static ArrayList<String> csv = new ArrayList<String>();
 	private static ArrayList<String> txt = new ArrayList<String>();
+
+
+	/**
+	 * main method is implement first;
+	 */
 
 	public static void main(String[]args) {
 		Main my = new Main();

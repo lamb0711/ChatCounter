@@ -3,11 +3,19 @@ package edu.handong.csee.java.hw3;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-
+/**
+ * FileWriter class is save result data in csv file.
+ * @author yangsujin
+ *
+ */
 
 public class FileWriter {
 	PMCounter pc = new PMCounter();
 	RedundancyChecker re = new RedundancyChecker();
+
+	/**
+	 * saveInCsvFile method is save result data in csv file in descending order
+	 */
 
 	public void saveInCsvFile() {
 		String fileName = "out.csv";

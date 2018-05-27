@@ -6,9 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-
+/**
+ * PMCounter is count person message number and rank it.
+ * @author yangsujin
+ *
+ */
 public class PMCounter {
 	static HashMap<String, CountInfo> countInfo = new HashMap<String,CountInfo>();
+
+
+	/**
+	 * getCountInfo method can use countInfo HashMqp in other class
+	 * @return
+	 */
 	public static HashMap<String, CountInfo> getCountInfo() {
 		return countInfo;
 	}

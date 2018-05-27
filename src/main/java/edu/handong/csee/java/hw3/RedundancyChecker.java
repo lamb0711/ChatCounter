@@ -4,13 +4,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeSet;
 
+
+/**
+ * RedundancyChecker class is check redundancy message and remove it.
+ * @author yangsujin
+ *
+ */
+
 public class RedundancyChecker {
 	MessageDivider di = new MessageDivider();
 	static ArrayList<String> oneUser = new ArrayList<String>();
+
+
+	/**
+	 * getOneUser method can use oneUser ArrayList in other class
+	 * @return
+	 */
 	public static ArrayList<String> getOneUser() {
 		return oneUser;
 	}
 
+	/**
+	 * getOneMessage method can use oneMessage ArrayList in other class
+	 * @return
+	 */
 	public static ArrayList<String> getOneMessage() {
 		return oneMessage;
 	}

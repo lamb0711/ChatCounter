@@ -6,14 +6,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+/**
+ * FileLoader class is open file and save string by line.
+ * It divided by window and mac.
+ * @author yangsujin
+ *
+ */
 public class FileLoader {
 	static ArrayList<String> fileLineWin = new ArrayList<String>();
 	static ArrayList<String> fileLineMac = new ArrayList<String>();
 
+	/**
+	 * getFileLineWin method can use fileLineWin ArrayList in other class
+	 * @return
+	 */
+
 	public ArrayList<String> getFileLineWin() {
 		return fileLineWin;
 	}
+
+	/**
+	 * getFileLineMac method can use fileLineMac ArrayList in other class
+	 * @return
+	 */
 
 	public ArrayList<String> getFileLineMac() {
 		return fileLineMac;

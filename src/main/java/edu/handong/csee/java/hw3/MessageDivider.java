@@ -3,7 +3,12 @@ package edu.handong.csee.java.hw3;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * MessageDivider class is divide window and mac message to user, time and message;
+ * And refresh data, merge one message
+ * @author yangsujin
+ *
+ */
 
 public class MessageDivider {
 	static ArrayList<String> user = new ArrayList<String>();
@@ -18,19 +23,36 @@ public class MessageDivider {
 	static ArrayList<String> chatMessageMac1 = new ArrayList<String>();
 	static ArrayList<String> chatMessageMac = new ArrayList<String>();
 
+	/**
+	 * getChatMessageWin method can use chatMessageWin ArrayList in other class
+	 * @return
+	 */
 
 	public static ArrayList<String> getChatMessageWin() {
 		return chatMessageWin;
 	}
-
+	/**
+	 * getChatMessageMac method can use chatMessageMac ArrayList in other class
+	 * @return
+	 */
 
 	public static ArrayList<String> getChatMessageMac() {
 		return chatMessageMac;
 	}
 
+	/**
+	 * getUser method can use user ArrayList in other class
+	 * @return
+	 */
+
 	public static ArrayList<String> getUser() {
 		return user;
 	}
+
+	/**
+	 *  getUserMac method can use userMac ArrayList in other class
+	 * @return
+	 */
 
 
 	public static ArrayList<String> getUserMac() {
