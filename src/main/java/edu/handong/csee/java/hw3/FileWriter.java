@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 
 public class FileWriter {
 	PMCounter pc = new PMCounter();
+	RedundancyChecker re = new RedundancyChecker();
 	
 	public void saveInCsvFile() {
 		String fileName = "out.csv";
@@ -18,17 +19,26 @@ public class FileWriter {
 			System.out.println("Error opening the file "+fileName);
 			System.exit(0);
 		}
-		
+
 		outputStream.println("kakao_id,count");
-		for(String keyName : pc.getCountInfo().keySet()) {
-			CountInfo person = pc.getCountInfo().get(keyName);
-			for(int i = 1; i < 30; i++) {
+		
+		for(int i = 1; i<31; i++) {
+			
+			for(String keyName : pc.getCountInfo().keySet()) {
 				
+				CountInfo person = pc.getCountInfo().get(keyName);
+				
+				if(i==person.getRank()) {
+					outputStream.println(keyName+","+person.getNumber());
+					continue;
+				}
 			}
-			outputStream.println(keyName+",  "+pc.getCountInfo())
-			//System.out.println(keyName+" "+person.getNumber()+" "+person.getRank());
+			
+			
 		}
 		
+		outputStream.close();
+
 	}
 
 }

@@ -42,44 +42,33 @@ public class PMCounter {
 		    //System.out.println(name+" "+number.getNumber());
 		}
 		sortHashMap(countInfo);
-		//printMap(countInfo);
 		
 	}
 
 	private void sortHashMap(HashMap<String, CountInfo> countInfo2) {
 		int i=0;
-		int [] sortNumbers = new int[30];
+		int [] sortNumbers = new int[re.getOneUser().size()];
 		
 		for(String keyName : countInfo2.keySet()) {
 			CountInfo person = countInfo2.get(keyName);
 			sortNumbers[i] = person.getNumber();
 			i++;
-			//System.out.println(keyName+" "+person.getNumber()+" "+person.getRank());
 		}
 		
 		Arrays.parallelSort(sortNumbers);
 		
-
-
-		i = 0;
+i =0;
 		for(String keyName : countInfo2.keySet()) {
 			CountInfo person = countInfo2.get(keyName);
-			for(int j=0; j<sortNumbers.length; j++) {
+			for(int j=0; j<re.getOneUser().size(); j++) {
 				if(sortNumbers[j]==person.getNumber())
-					person.setRank(30-j);
+					person.setRank(29-j);
 			}
-			System.out.println(keyName+" "+person.getRank()+" "+person.getNumber());
+			System.out.println(i+keyName+" "+person.getRank()+" "+person.getNumber());
+			i++;
 		}
 		
 	}
 
-	private void printMap(HashMap<String, CountInfo> countInfo) {
-		for(String keyName : countInfo.keySet()) {
-			//Set<String> keyName = message2.keySet();
-			CountInfo person = countInfo.get(keyName);
-			System.out.println(keyName+" "+person.getNumber()+" "+person.getRank());
-		}
-		
-	}
 
 }
