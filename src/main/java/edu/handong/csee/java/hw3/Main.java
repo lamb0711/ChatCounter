@@ -45,7 +45,6 @@ public class Main {
 				printHelp(options);
 				return;
 			}
-
 			File file  = new File(path);
 			File arr[] = file.listFiles();
 
@@ -112,10 +111,9 @@ public class Main {
 
 	private boolean parseOptions(Options options, String[] args) {
 		CommandLineParser parser = new DefaultParser();
-		for(int i=0; i<args.length; i++)
-			System.out.println(args[i]);
-
-
+	
+		
+		
 		try {
 			CommandLine cmd = parser.parse(options, args);
 
@@ -142,7 +140,13 @@ public class Main {
 	private Options createOptions() {
 		Options options = new Options();
 
-		options.addOption(Option.builder("p").longOpt("path")
+		options.addOption(Option.builder("i").longOpt("path")
+				.desc("Set a path of a directory or a file to display")
+				.hasArg()
+				.argName("Path name to display")
+				.required()
+				.build());
+		options.addOption(Option.builder("o").longOpt("output")
 				.desc("Set a path of a directory or a file to display")
 				.hasArg()
 				.argName("Path name to display")

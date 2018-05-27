@@ -38,7 +38,6 @@ public class FileLoader {
 	void readFile(String fileName, int a){
 		Scanner inputStream = null;
 
-
 		try {
 			inputStream = new Scanner(new File(fileName));
 
