@@ -27,7 +27,8 @@ public class Main {
 
 	private static ArrayList<String> csv = new ArrayList<String>();
 	private static ArrayList<String> txt = new ArrayList<String>();
-
+	ArrayList<String> firstName = new ArrayList<String>();
+	static ArrayList<String> name = new ArrayList<String>();
 
 	/**
 	 * main method is implement first;
@@ -40,12 +41,6 @@ public class Main {
 
 	private void run(String[] args) {
 		Options options = createOptions();
-//데이타 리더 클래스를 선언해서 파일을 읽는다. 데이타 리더 클래스로 감
-		//dataread.readdata(input data)
-		//	ㄷ내가 쓰레드로 하려던것 개인의 파일 읽기
-		//데이타 리터 전체를 런터블로 만들면 안됨 디렉토리는 한번만 읽으면 되니까! 나는 파일을 쓰레드로 만들고 싶으니까!
-		//즉 나는 readfile만변경하면 된다.
-		//여기서 파일만 읽는 역할을 하는 csv파일 리더랑 txt파일리더랑 전용 러너블을 만든다. - 루프를 없앰
 		
 		
 		if(parseOptions(options, args)) {
@@ -53,41 +48,37 @@ public class Main {
 				printHelp(options);
 				return;
 			}
+			
 			File file  = new File(path);
 			File arr[] = file.listFiles();
 
-			ArrayList<String> name = new ArrayList<String>();
-
 			for(int i=0 ; i<arr.length ; i++ ){
 
-				name.add(arr[i].getName());
+				firstName.add(arr[i].getName());
 
 			}
 
 
-			for(int i = 0; i < name.size(); i++){
-				String txtname = name.get(i);
-				if(txtname.matches(".*csv")) {
-					csv.add(path+"/"+txtname);
-				}else txt.add(path+"/"+txtname);
+			for(int i = 0; i < firstName.size(); i++){
+				String txtname = firstName.get(i);
+					name.add(path+"/"+txtname);
 			} 
 
-
-			 FileLoader fi = new FileLoader(numberOfTheards);
+			FileLoader fi = new FileLoader(numberOfTheards);
 			MessageDivider di = new MessageDivider();
 			MacMessageParser ma = new MacMessageParser();
 
-			for(int i=0; i<csv.size(); i++) {
-				fi.readFile(csv.get(i), 1);
+			fi.fileMain();
+			/*
+			//for(int i=0; i<csv.size(); i++) {
 				ma.saveOnlyMessageMac();
 				di.divideMessageMac();
-			}
+			//}
 
 
-			for(int i=0; i<txt.size(); i++) {
-				fi.readFile(txt.get(i), 0);
+			//for(int i=0; i<txt.size(); i++) {
 				di.divideMessageWin();
-			}
+			//}
 
 			RedundancyChecker ha = new RedundancyChecker();
 			ha.saveOnlyOneUser();
@@ -99,13 +90,17 @@ public class Main {
 			FileWriter wr = new FileWriter();
 			wr.saveInCsvFile(output);
 
-
+*/
 			if(verbose) {
 
 				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
 			}
 		}
 
+	}
+
+	public static ArrayList<String> getName() {
+		return name;
 	}
 
 	private boolean parseOptions(Options options, String[] args) {

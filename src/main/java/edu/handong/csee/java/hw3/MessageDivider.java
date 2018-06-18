@@ -60,7 +60,7 @@ public class MessageDivider {
 	}
 
 
-	FileLoader fi = new FileLoader();
+	WinFileReader fi = new WinFileReader();
 	MacMessageParser ma = new MacMessageParser();
 
 

@@ -18,9 +18,15 @@ public class MacMessageParser {
 		return messageLineMac;
 	}
 
-	FileLoader fi = new FileLoader();
+	MacFileReader fi = new MacFileReader();
 
 	void saveOnlyMessageMac() {
+		
+		for(int i=0;i<fi.getFileLineMac().size();i++) {
+	 		System.out.println(i+" "+fi.getFileLineMac().get(i));
+	 	}
+		
+		
 		String line = "";
 		for(int i=0; i<fi.getFileLineMac().size()-1; i++) {
 			line = line.concat(fi.getFileLineMac().get(i));
