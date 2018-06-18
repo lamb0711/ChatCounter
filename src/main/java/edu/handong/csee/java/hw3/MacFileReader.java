@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class MacFileReader implements Runnable{
 	
 	String file;
-	static ArrayList<String> fileLineMac = new ArrayList<String>();
+	static public ArrayList<String> fileLineMac = new ArrayList<String>();
 	
 	public static ArrayList<String> getFileLineMac() {
 		return fileLineMac;

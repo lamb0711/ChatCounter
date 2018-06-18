@@ -41,14 +41,14 @@ public class Main {
 
 	private void run(String[] args) {
 		Options options = createOptions();
-		
-		
+
+
 		if(parseOptions(options, args)) {
 			if (help){
 				printHelp(options);
 				return;
 			}
-			
+
 			File file  = new File(path);
 			File arr[] = file.listFiles();
 
@@ -61,7 +61,7 @@ public class Main {
 
 			for(int i = 0; i < firstName.size(); i++){
 				String txtname = firstName.get(i);
-					name.add(path+"/"+txtname);
+				name.add(path+"/"+txtname);
 			} 
 
 			FileLoader fi = new FileLoader(numberOfTheards);
@@ -69,16 +69,12 @@ public class Main {
 			MacMessageParser ma = new MacMessageParser();
 
 			fi.fileMain();
-			/*
-			//for(int i=0; i<csv.size(); i++) {
+			
 				ma.saveOnlyMessageMac();
 				di.divideMessageMac();
-			//}
-
-
-			//for(int i=0; i<txt.size(); i++) {
+			
 				di.divideMessageWin();
-			//}
+		
 
 			RedundancyChecker ha = new RedundancyChecker();
 			ha.saveOnlyOneUser();
@@ -90,7 +86,7 @@ public class Main {
 			FileWriter wr = new FileWriter();
 			wr.saveInCsvFile(output);
 
-*/
+			 
 			if(verbose) {
 
 				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");

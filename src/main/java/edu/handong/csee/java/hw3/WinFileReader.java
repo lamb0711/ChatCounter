@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class WinFileReader implements Runnable{
 	
 	String file;
-	static ArrayList<String> fileLineWin = new ArrayList<String>();
+	static public ArrayList<String> fileLineWin = new ArrayList<String>();
 	
 	public static ArrayList<String> getFileLineWin() {
 		return fileLineWin;

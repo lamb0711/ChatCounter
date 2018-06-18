@@ -22,9 +22,7 @@ public class MacMessageParser {
 
 	void saveOnlyMessageMac() {
 		
-		for(int i=0;i<fi.getFileLineMac().size();i++) {
-	 		System.out.println(i+" "+fi.getFileLineMac().get(i));
-	 	}
+		
 		
 		
 		String line = "";
