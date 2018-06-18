@@ -20,12 +20,13 @@ public class WinFileReader implements Runnable{
 	 */
 
 	public static ArrayList<String> getFileLineWin() {
+		//System.out.println(fileLineWin.size());
 		return fileLineWin;
 	}
 	/**
 	 * run is first method to implement in main method
 	 */
-	public synchronized void run() {
+	public void run() {
 		Scanner inputStream = null;
 
 		try {

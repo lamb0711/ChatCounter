@@ -71,11 +71,7 @@ public class MessageDivider {
 		for(int i=0; i<fi.getFileLineWin().size(); i++) {
 
 			String line = fi.getFileLineWin().get(i);
-			/*if(line.contains("사진")) {
-				System.out.println(line);
-				line.replace("사진","Photo");
-				System.out.println(line);
-			}*/
+
 			Matcher matcher = pattern.matcher(line);
 
 			while(matcher.find()) {

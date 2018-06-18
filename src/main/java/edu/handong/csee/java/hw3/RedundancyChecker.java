@@ -77,7 +77,9 @@ public class RedundancyChecker {
 
 		oneMessage.add(oneMessage1.get(oneMessage1.size()-1));
 
-
+		/*for(int i=0; i<oneMessage.size(); i++) {
+			System.out.println(i+oneMessage.get(i));
+		}*/
 
 	}
 

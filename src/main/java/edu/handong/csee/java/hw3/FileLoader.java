@@ -51,7 +51,7 @@ public class FileLoader {
 	}
 
 
-	private synchronized void readFile(){
+	private void readFile(){
 
 		int numOfCoresInMyCPU = Runtime.getRuntime().availableProcessors();
 		System.out.println("The number of cores of my system: " + numOfCoresInMyCPU);
@@ -59,19 +59,17 @@ public class FileLoader {
 		ExecutorService executor = Executors.newFixedThreadPool(numOfCoresInMyCPU);
 
 
-		synchronized(fileName) {
-			for(String file : fileName) {
+		for(String file : fileName) {
 
-				if(file.contains(".csv")) {
-					MacFileReader fi = new MacFileReader(file);
-					Runnable worker = fi;
-					executor.execute(worker);
+			if(file.contains(".csv")) {
+				MacFileReader fi = new MacFileReader(file);
+				Runnable worker = fi;
+				executor.execute(worker);
 
-				} else {
-					WinFileReader fa = new WinFileReader(file);
-					Runnable worker = fa;
-					executor.execute(worker);
-				}
+			} else {
+				WinFileReader fa = new WinFileReader(file);
+				Runnable worker = fa;
+				executor.execute(worker);
 			}
 		}
 
