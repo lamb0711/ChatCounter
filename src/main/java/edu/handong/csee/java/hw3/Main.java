@@ -20,6 +20,7 @@ import org.apache.commons.cli.Options;
 public class Main {
 	String path;
 	String output;
+	String numberOfTheards;
 	boolean verbose;
 	boolean help;
 
@@ -39,7 +40,14 @@ public class Main {
 
 	private void run(String[] args) {
 		Options options = createOptions();
-
+//데이타 리더 클래스를 선언해서 파일을 읽는다. 데이타 리더 클래스로 감
+		//dataread.readdata(input data)
+		//	ㄷ내가 쓰레드로 하려던것 개인의 파일 읽기
+		//데이타 리터 전체를 런터블로 만들면 안됨 디렉토리는 한번만 읽으면 되니까! 나는 파일을 쓰레드로 만들고 싶으니까!
+		//즉 나는 readfile만변경하면 된다.
+		//여기서 파일만 읽는 역할을 하는 csv파일 리더랑 txt파일리더랑 전용 러너블을 만든다. - 루프를 없앰
+		
+		
 		if(parseOptions(options, args)) {
 			if (help){
 				printHelp(options);
@@ -62,10 +70,10 @@ public class Main {
 				if(txtname.matches(".*csv")) {
 					csv.add(path+"/"+txtname);
 				}else txt.add(path+"/"+txtname);
-			}
+			} 
 
 
-			FileLoader fi = new FileLoader();
+			 FileLoader fi = new FileLoader(numberOfTheards);
 			MessageDivider di = new MessageDivider();
 			MacMessageParser ma = new MacMessageParser();
 
@@ -110,6 +118,7 @@ public class Main {
 
 			path = cmd.getOptionValue("i");
 			output = cmd.getOptionValue("o");
+			numberOfTheards = cmd.getOptionValue("c");
 			verbose = cmd.hasOption("v");
 			help = cmd.hasOption("h");
 
@@ -141,6 +150,12 @@ public class Main {
 				.desc("Set a path of a directory or a file to output")
 				.hasArg()
 				.argName("Path name to display")
+				.required()
+				.build());
+		options.addOption(Option.builder("c").longOpt("number of threads")
+				.desc("Set a number of threads")
+				.hasArg()
+				.argName("number to display")
 				.required()
 				.build());
 		options.addOption(Option.builder("v").longOpt("verbose")

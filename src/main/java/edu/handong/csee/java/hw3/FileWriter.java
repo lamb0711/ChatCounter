@@ -30,7 +30,7 @@ public class FileWriter {
 
 		outputStream.println("kakao_id,count");
 
-		for(int i = 1; i<31; i++) {
+		for(int i = 1; i<re.getOneUser().size()+3; i++) {
 
 			for(String keyName : pc.getCountInfo().keySet()) {
 

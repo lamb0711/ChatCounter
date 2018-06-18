@@ -72,7 +72,7 @@ public class PMCounter {
 			CountInfo person = countInfo2.get(keyName);
 			for(int j=0; j<re.getOneUser().size(); j++) {
 				if(sortNumbers[j]==person.getNumber())
-					person.setRank(29-j);
+					person.setRank(re.getOneUser().size()+1-j);
 			}
 		}
 

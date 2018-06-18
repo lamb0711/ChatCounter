@@ -65,7 +65,7 @@ public class RedundancyChecker {
 
 		for(int i=0; i < oneMessage1.size()-1;i++) {
 
-			if(oneMessage1.get(i).length() > 50 && oneMessage1.get(i+1).length() > 100 ) 
+			if(oneMessage1.get(i).length() > 30 && oneMessage1.get(i+1).length() > 30 ) 
 				line = oneMessage1.get(i).substring(0, 30);
 
 			if(line.length()==30 && oneMessage1.get(i+1).contains(line)) {
@@ -75,7 +75,10 @@ public class RedundancyChecker {
 			oneMessage.add(oneMessage1.get(i));
 		}
 		oneMessage.add(oneMessage1.get(oneMessage1.size()-1));
-
+		
+		/*for(int i=0;i<oneMessage.size();i++) {
+			 		System.out.println(i+" "+oneMessage.get(i));
+			 	}*/
 
 	}
 
