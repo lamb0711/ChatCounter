@@ -112,7 +112,7 @@ public class MessageDivider {
 					time2 = matcher.group(2);
 
 				}
-				
+
 				if(time1.matches("12")){
 
 					time1 ="00";

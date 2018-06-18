@@ -69,12 +69,12 @@ public class Main {
 			MacMessageParser ma = new MacMessageParser();
 
 			fi.fileMain();
-			
-				ma.saveOnlyMessageMac();
-				di.divideMessageMac();
-			
-				di.divideMessageWin();
-		
+
+			ma.saveOnlyMessageMac();
+			di.divideMessageMac();
+
+			di.divideMessageWin();
+
 
 			RedundancyChecker ha = new RedundancyChecker();
 			ha.saveOnlyOneUser();
@@ -86,7 +86,7 @@ public class Main {
 			FileWriter wr = new FileWriter();
 			wr.saveInCsvFile(output);
 
-			 
+
 			if(verbose) {
 
 				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
@@ -94,6 +94,10 @@ public class Main {
 		}
 
 	}
+	/**
+	 * getName method can use name ArrayList in other class
+	 * @return
+	 */
 
 	public static ArrayList<String> getName() {
 		return name;

@@ -21,10 +21,10 @@ public class MacMessageParser {
 	MacFileReader fi = new MacFileReader();
 
 	void saveOnlyMessageMac() {
-		
-		
-		
-		
+
+
+
+
 		String line = "";
 		for(int i=0; i<fi.getFileLineMac().size()-1; i++) {
 			line = line.concat(fi.getFileLineMac().get(i));

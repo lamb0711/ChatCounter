@@ -22,63 +22,56 @@ public class FileLoader {
 	static int numOfCoresInMyCPU=0;
 	static ArrayList<String> fileName = new ArrayList<String>();
 
+	/**
+	 * FileLoader()is constructor.
+	 */
+
 	public FileLoader () {
 
 	}
-
+	/**
+	 * FileLoader(String)is constructor.
+	 * @param number
+	 */
 	public FileLoader (String number) {
 		this.numOfCoresInMyCPU = Integer.parseInt(number);
 	}
-
-
 	/**
-	 * getFileLineWin method can use fileLineWin ArrayList in other class
-	 * @return
+	 * fileMain is first method to call
 	 */
-
-	/**
-	 * getFileLineMac method can use fileLineMac ArrayList in other class
-	 * @return
-	 */
-
 
 	public void fileMain() {
 		fileName.addAll(Main.getName());
 
-		
+
 		FileLoader fi = new FileLoader();
 
 		fi.readFile();
-		
-		/*MacFileReader fi1 = new MacFileReader();
-		System.out.println("s"+fi1.getFileLineMac().size());
-		for(int i=0;i<fi1.getFileLineMac().size();i++) {
-			System.out.println(fi1.getFileLineMac().get(i));
-		}*/
+
 	}
 
 
-	void readFile(){
-		
+	private synchronized void readFile(){
+
 		int numOfCoresInMyCPU = Runtime.getRuntime().availableProcessors();
 		System.out.println("The number of cores of my system: " + numOfCoresInMyCPU);
 
 		ExecutorService executor = Executors.newFixedThreadPool(numOfCoresInMyCPU);
-		
-		for(String file : fileName) {
 
 
-			if(file.contains(".csv")) {
-				
-				MacFileReader fi = new MacFileReader(file);
-				Runnable worker = fi;
-				executor.execute(worker);
+		synchronized(fileName) {
+			for(String file : fileName) {
 
-			} else {
-				
-				WinFileReader fa = new WinFileReader(file);
-				Runnable worker = fa;
-				executor.execute(worker);
+				if(file.contains(".csv")) {
+					MacFileReader fi = new MacFileReader(file);
+					Runnable worker = fi;
+					executor.execute(worker);
+
+				} else {
+					WinFileReader fa = new WinFileReader(file);
+					Runnable worker = fa;
+					executor.execute(worker);
+				}
 			}
 		}
 
